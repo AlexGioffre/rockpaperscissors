@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        /* ComputerPlay() get the pc choose */
+
+        computerPlay = () => {
+            let choose = Math.floor(Math.random() * 3);
+            let options = ['Rock', 'Paper', 'Scissors'];
+            return value = options[choose];
+        }
+
+        
+
+        game = () => {
+            let win = 0;
+            let draw = 0;
+            let lose = 0;
+            
+            /* Loop of the game, best of 5 */
+
+            for(let i = 0; i < 5; i++)
+            {
+                chooseUser = prompt('Rock Paper or Scissors? (Write one of this options');
+                /* check that the user print a valid options */
+                while(chooseUser !== "Rock" && chooseUser !== "Paper" && chooseUser !== "Schissors" && chooseUser !== "Paper".toLowerCase() && chooseUser !== "Schissors".toLowerCase() && chooseUser !== "Rock".toLowerCase() ){
+                    console.log("Wrong options");
+                    chooseUser = prompt('Rock Paper or Scissors? (Write one of this options');
+                }
+
+                /* Transform the choose from user and pc on lowercase  */
+                user = chooseUser.toLowerCase();
+                pc = computerPlay().toLowerCase();
+                console.log(pc);
+                /* check the posibile results */
+                if(user == pc){
+                    draw = draw +1;
+                }
+
+                if(user == 'rock' && pc == 'paper')
+                {
+                    lose = lose + 1;
+                }
+
+                if(user == 'rock' && pc == 'scissors')
+                {
+                    win = win + 1;
+                }
+
+                if(user == 'paper' && pc == 'scissors')
+                {
+                    lose = lose + 1;
+                }
+
+                if(user == 'paper' && pc == 'rock'){
+                    win = win + 1;
+                }
+
+                if(user == 'scissors' && pc == 'rock'){
+                    lose = lose + 1;
+                }
+
+                if(user == 'scissors' && pc == 'paper'){
+                    win = win + 1;
+                }
+            }
+
+            result = '';
+            /* Check that result  */
+            win > lose ? result = "Win" : win == lose ? result = "Draw" : result = "Lose";
+
+            console.log(`You ${result}`)
+
+        }
+
+        game();
+
+    </script>
+</body>
+</html>
